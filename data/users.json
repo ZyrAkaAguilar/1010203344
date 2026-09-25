@@ -5,7 +5,7 @@
       "username": "Steve_Pro",
       "password": "123",
       "status": "active",
-      "role": "Jugador Oficial",
+      "role": "Jugador Oficial ZyrIsland",
       "allowedEvents": ["craftia-championship", "nether-speedrun"]
     },
     {
@@ -21,7 +21,7 @@
       "username": "Noob_Player",
       "password": "123",
       "status": "suspended",
-      "suspendReason": "Uso no autorizado de modificaciones en cliente",
+      "suspendReason": "Infracción de normativas ZyrIsland",
       "allowedEvents": []
     },
     {
@@ -29,7 +29,7 @@
       "username": "Hacker99",
       "password": "123",
       "status": "banned",
-      "suspendReason": "Baneo permanente por comportamiento tóxico",
+      "suspendReason": "Baneo permanente del sistema Eufonia Studio",
       "allowedEvents": []
     },
     {

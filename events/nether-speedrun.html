@@ -3,54 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nether Speedrun Masters - Asset Downloader</title>
+    <title>Nether Speedrun - ZyrIsland Asset Downloader</title>
     <link rel="stylesheet" href="../css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="mcc-bg-overlay"></div>
+    <div class="eufonia-bg-glow"></div>
+    <div class="eufonia-grid-overlay"></div>
 
     <header class="navbar">
         <div class="nav-container">
-            <a href="../index.html" class="mcc-btn mcc-btn-blue"><i class="fa-solid fa-arrow-left"></i> Volver al Hub</a>
+            <a href="../index.html" class="zyr-btn zyr-btn-cyan"><i class="fa-solid fa-arrow-left"></i> Volver al Hub</a>
             <div class="brand">
-                <span class="brand-badge">INSTANCIA DE EVENTO</span>
+                <span class="brand-studio"><i class="fa-solid fa-cube"></i> EUFONIA STUDIO</span>
+                <span class="brand-divider">/</span>
+                <span class="brand-title">DESCARGA DE ASSETS</span>
             </div>
         </div>
     </header>
 
-    <main class="event-detail-container">
-        <div class="event-banner-large" style="background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80');">
-            <div class="banner-content">
-                <span class="mcc-badge badge-blue">PRÓXIMAMENTE</span>
-                <h1>NETHER SPEEDRUN MASTERS</h1>
-                <p><i class="fa-solid fa-calendar"></i> Fecha: 28 de Noviembre, 2026</p>
-            </div>
-        </div>
+    <main class="download-page-container">
+        <!-- Single Asset Downloader Box with Dynamic Event Background -->
+        <div class="asset-download-card" id="event-card-box">
+            <div class="card-bg-overlay"></div>
+            
+            <div class="card-content">
+                <div class="card-header-badge">
+                    <span class="zyr-badge badge-gold"><i class="fa-solid fa-circle-check"></i> EVENTO AUTORIZADO</span>
+                    <span class="event-code">ID: nether-speedrun</span>
+                </div>
 
-        <div class="event-details-grid">
-            <div class="detail-card">
-                <h2><i class="fa-solid fa-circle-info"></i> Descripción del Evento</h2>
-                <p>Compite en la dimensión del Nether. Generación de seeds idénticas para todos los streamers y velocidad pura con temporizador integrado.</p>
+                <h1 class="event-main-title">NETHER SPEEDRUN MASTERS</h1>
+                <p class="event-meta-info"><i class="fa-solid fa-calendar-days"></i> Fecha del Evento: 28 de Noviembre, 2026 | <i class="fa-solid fa-microchip"></i> ZyrIsland Engine v2.4</p>
                 
-                <h3 style="margin-top: 20px;"><i class="fa-solid fa-download"></i> Assets de Prueba</h3>
-                <div class="asset-list">
-                    <div class="asset-item">
-                        <div>
-                            <strong>HUD Speedrun Addon</strong>
-                            <p>Overlay con timer y contador de perlas.</p>
+                <p class="event-description-text">
+                    Módulos de temporizador sincronizado, generación de seeds idénticas y modpack oficial para el torneo de speedrun del Nether por Eufonia Studio.
+                </p>
+
+                <!-- Download Area / Progress Display -->
+                <div class="download-interactive-zone">
+                    <div id="initial-download-view">
+                        <button id="start-download-btn" class="zyr-btn zyr-btn-gold zyr-btn-lg">
+                            <i class="fa-solid fa-cloud-arrow-down"></i> DESCARGAR PAQUETE COMPLETO DE ASSETS (.ZIP)
+                        </button>
+                        <span class="file-size-info"><i class="fa-solid fa-hard-drive"></i> Tamaño aprox: 84.2 MB</span>
+                    </div>
+
+                    <!-- Progress Animated Box -->
+                    <div id="download-progress-view" class="progress-box hidden">
+                        <div class="progress-info-header">
+                            <span id="status-step-text" class="status-step"><i class="fa-solid fa-gear fa-spin"></i> Inicializando descarga...</span>
+                            <span id="speed-indicator" class="speed-text">0.0 MB/s</span>
                         </div>
-                        <button class="mcc-btn mcc-btn-gold" onclick="alert('Descargando Addon...')"><i class="fa-solid fa-download"></i> .ZIP (5 MB)</button>
+
+                        <!-- Bar 1: Status / Step Phase Progress -->
+                        <div class="bar-container">
+                            <div class="bar-label-line">
+                                <span>PROCESO PRINCIPAL</span>
+                                <span id="bar1-percent">0%</span>
+                            </div>
+                            <div class="progress-bar-outer">
+                                <div id="bar1-inner" class="progress-bar-inner cyan-glow" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Bar 2: Dynamic Real-Time Download Progress + Countdown -->
+                        <div class="bar-container" style="margin-top: 15px;">
+                            <div class="bar-label-line">
+                                <span>TIEMPO RESTANTE</span>
+                                <span id="timer-remaining">Calculando...</span>
+                            </div>
+                            <div class="progress-bar-outer">
+                                <div id="bar2-inner" class="progress-bar-inner gold-glow" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Complete Success View -->
+                    <div id="download-success-view" class="success-box hidden">
+                        <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                        <h3>¡Descarga Completada con Éxito!</h3>
+                        <p>Los assets de <strong>ZyrIsland Client</strong> se han desempaquetado correctamente.</p>
+                        <button class="zyr-btn zyr-btn-cyan" onclick="location.reload()"><i class="fa-solid fa-rotate-right"></i> Volver a Descargar</button>
                     </div>
                 </div>
             </div>
-
-            <aside class="detail-card">
-                <h2><i class="fa-solid fa-shield-halved"></i> Requisitos</h2>
-                <p>Se requiere verificación de cliente anti-cheat antes del torneo.</p>
-            </aside>
         </div>
     </main>
+
+    <script src="../js/downloader.js"></script>
 </body>
 </html>

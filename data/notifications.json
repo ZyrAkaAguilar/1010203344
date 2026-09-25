@@ -2,27 +2,19 @@
   "notifications": [
     {
       "id": "n1",
-      "title": "¡ResourcePack Actualizado!",
-      "message": "Se han corregido errores de texturas en la instancia de Craftia Championship. Por favor descarga la v1.4.",
-      "author": "Eufonia DevTeam",
+      "title": "¡Motor ZyrIsland Actualizado!",
+      "message": "Se han actualizado los paquetes de texturas e instancias en el motor ZyrIsland v2.4.",
+      "author": "Eufonia Studio",
       "date": "Hace 10 min",
       "type": "update"
     },
     {
       "id": "n2",
-      "title": "Revisión Anti-Cheat Requerida",
-      "message": "Recuerda tener actualizado el launcher oficial antes de ingresar al servidor del torneo.",
-      "author": "Staff",
+      "title": "Sincronización de Seguridad",
+      "message": "Sistema Anti-Cheat activo para todas las cuentas vinculadas a ZyrIsland Client.",
+      "author": "Sistema Eufonia",
       "date": "Hace 2 horas",
       "type": "urgent"
-    },
-    {
-      "id": "n3",
-      "title": "Mantenimiento del Hub",
-      "message": "Sincronización de credenciales y JSONs completada con éxito.",
-      "author": "Sistema",
-      "date": "Ayer",
-      "type": ""
     }
   ]
 }

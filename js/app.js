@@ -1,4 +1,4 @@
-// Eufonia Client - Application Logic
+// ZyrIsland Client - Eufonia Studio Engine
 let currentUser = null;
 let autoRefreshTimer = null;
 
@@ -8,8 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initApp() {
-    // Restore session if exists
-    const storedUser = localStorage.getItem('eufonia_user');
+    const storedUser = localStorage.getItem('zyrisland_user');
     if (storedUser) {
         currentUser = JSON.parse(storedUser);
     }
@@ -17,16 +16,15 @@ function initApp() {
     updateUIState();
     loadAllData();
 
-    // Auto verify JSON changes every 30 seconds
+    // Verification every 30 seconds
     if (autoRefreshTimer) clearInterval(autoRefreshTimer);
     autoRefreshTimer = setInterval(() => {
-        console.log('[Auto-Sync] Verificando cambios en archivos JSON...');
+        console.log('[ZyrIsland Sync] Verificando cambios en archivos JSON...');
         loadAllData();
     }, 30000);
 }
 
 function setupEventListeners() {
-    // Login Modal Triggers
     document.getElementById('login-open-btn').addEventListener('click', () => {
         document.getElementById('login-modal').classList.remove('hidden');
     });
@@ -35,20 +33,17 @@ function setupEventListeners() {
         document.getElementById('login-modal').classList.add('hidden');
     });
 
-    // Login Form Submit
     document.getElementById('login-form').addEventListener('submit', async (e) => {
         e.preventDefault();
         await handleLogin();
     });
 
-    // Logout
     document.getElementById('logout-btn').addEventListener('click', () => {
         currentUser = null;
-        localStorage.removeItem('eufonia_user');
+        localStorage.removeItem('zyrisland_user');
         initApp();
     });
 
-    // Manual Refresh Button
     document.getElementById('refresh-btn').addEventListener('click', () => {
         const btnIcon = document.querySelector('#refresh-btn i');
         btnIcon.classList.add('fa-spin');
@@ -58,7 +53,6 @@ function setupEventListeners() {
     });
 }
 
-// Authentication Logic against users.json
 async function handleLogin() {
     const userInput = document.getElementById('username').value.trim();
     const passInput = document.getElementById('password').value.trim();
@@ -72,32 +66,30 @@ async function handleLogin() {
         const foundUser = data.users.find(u => u.username.toLowerCase() === userInput.toLowerCase() && u.password === passInput);
 
         if (!foundUser) {
-            showLoginError('Usuario o contraseña incorrectos.');
+            showLoginError('Credenciales inválidas en ZyrIsland System.');
             return;
         }
 
-        // Check Account Status
         if (foundUser.status === 'banned') {
-            showLoginError('TU CUENTA HA SIDO BANEADA PERMANENTEMENTE.');
+            showLoginError('CUENTA BANEADA PERMANENTEMENTE.');
             return;
         }
 
         if (foundUser.status === 'suspended') {
-            showLoginError(`CUENTA SUSPENDIDA. Razon: ${foundUser.suspendReason || 'Infraccion de normas'}`);
+            showLoginError(`CUENTA SUSPENDIDA. Razón: ${foundUser.suspendReason || 'Infracción'}`);
             return;
         }
 
-        // Login Success
         currentUser = foundUser;
-        localStorage.setItem('eufonia_user', JSON.stringify(currentUser));
+        localStorage.setItem('zyrisland_user', JSON.stringify(currentUser));
         document.getElementById('login-modal').classList.add('hidden');
         document.getElementById('login-form').reset();
         
         initApp();
 
     } catch (err) {
-        console.error('Error al conectar con la BD de usuarios:', err);
-        showLoginError('Error de servidor al validar credenciales.');
+        console.error('Error al conectar con users.json:', err);
+        showLoginError('Error al validar credenciales.');
     }
 }
 
@@ -107,7 +99,6 @@ function showLoginError(msg) {
     errorBox.classList.remove('hidden');
 }
 
-// Update Interface based on login status
 function updateUIState() {
     const loginBtn = document.getElementById('login-open-btn');
     const profileBar = document.getElementById('user-profile-bar');
@@ -120,11 +111,10 @@ function updateUIState() {
         document.getElementById('user-role').textContent = currentUser.role || 'Jugador';
         document.getElementById('user-avatar').src = `https://mc-heads.net/avatar/${currentUser.username}/40`;
 
-        // Check if current user is banned/suspended live
         if (currentUser.status === 'banned' || currentUser.status === 'suspended') {
             alertBox.classList.remove('hidden');
-            document.getElementById('alert-title').textContent = `CUENTA ${currentUser.status.toUpperCase()}`;
-            document.getElementById('alert-message').textContent = `Tu cuenta no puede participar en eventos. Si crees que es un error, contáctanos.`;
+            document.getElementById('alert-title').textContent = `ESTADO: CUENTA ${currentUser.status.toUpperCase()}`;
+            document.getElementById('alert-message').textContent = `Tu cuenta no tiene autorización para ingresar a eventos de ZyrIsland Client.`;
         } else {
             alertBox.classList.add('hidden');
         }
@@ -132,14 +122,12 @@ function updateUIState() {
         loginBtn.classList.remove('hidden');
         profileBar.classList.add('hidden');
         
-        // Default guest alert
         alertBox.classList.remove('hidden');
-        document.getElementById('alert-title').textContent = 'Sesión Requerida';
-        document.getElementById('alert-message').textContent = 'Inicia sesión con tu cuenta de Eufonia Client para sincronizar tus instancias y eventos autorizados.';
+        document.getElementById('alert-title').textContent = 'Acceso Restringido';
+        document.getElementById('alert-message').textContent = 'Inicia sesión con tu cuenta de ZyrIsland Client para sincronizar tus instancias y eventos autorizados.';
     }
 }
 
-// Fetch and render JSON Data
 async function loadAllData() {
     await Promise.all([
         loadNotifications(),
@@ -161,7 +149,7 @@ async function loadNotifications() {
             item.className = `notif-item ${notif.type || ''}`;
             item.innerHTML = `
                 <div class="notif-header">
-                    <span>${notif.author || 'Sistema'}</span>
+                    <span>${notif.author || 'Eufonia Studio'}</span>
                     <span>${notif.date}</span>
                 </div>
                 <div class="notif-title">${notif.title}</div>
@@ -170,7 +158,7 @@ async function loadNotifications() {
             container.appendChild(item);
         });
     } catch (e) {
-        console.error('Error al cargar notificaciones:', e);
+        console.error('Error cargando notificaciones:', e);
     }
 }
 
@@ -188,13 +176,12 @@ async function loadEvents() {
         const data = await res.json();
         grid.innerHTML = '';
 
-        // Filter events assigned to current user
         const userEvents = data.events.filter(ev => currentUser.allowedEvents.includes(ev.id));
 
         if (userEvents.length === 0) {
             alertBox.classList.remove('hidden');
-            document.getElementById('alert-title').textContent = 'Sin Eventos Asignados';
-            document.getElementById('alert-message').textContent = 'No hay eventos autorizados para tu cuenta en este momento. Si crees que es un error, comunícate en Discord.';
+            document.getElementById('alert-title').textContent = 'Sin Eventos Autorizados';
+            document.getElementById('alert-message').textContent = 'No hay eventos asignados a tu cuenta de ZyrIsland Client. Comunícate en Discord si crees que es un error.';
             return;
         } else {
             alertBox.classList.add('hidden');
@@ -205,14 +192,14 @@ async function loadEvents() {
             card.className = 'event-card';
             card.innerHTML = `
                 <div class="event-cover" style="background-image: url('${ev.coverImage}')">
-                    <span class="event-status-tag" style="color: ${ev.availability === 'Disponible' ? '#00ff88' : '#ffbe00'}">${ev.availability}</span>
+                    <span class="event-status-tag" style="color: ${ev.availability === 'Disponible' ? '#00f0ff' : '#ffbe00'}">${ev.availability}</span>
                 </div>
                 <div class="event-body">
                     <div class="event-title">${ev.title}</div>
                     <div class="event-date"><i class="fa-solid fa-calendar"></i> ${ev.date}</div>
                     <div class="event-desc">${ev.description}</div>
-                    <a href="${ev.detailPage}" class="mcc-btn mcc-btn-gold mcc-btn-block">
-                        <i class="fa-solid fa-download"></i> Entrar a Instancia
+                    <a href="${ev.detailPage}" class="zyr-btn zyr-btn-gold zyr-btn-block">
+                        <i class="fa-solid fa-download"></i> Descargar Assets
                     </a>
                 </div>
             `;
@@ -220,6 +207,6 @@ async function loadEvents() {
         });
 
     } catch (e) {
-        console.error('Error al cargar eventos:', e);
+        console.error('Error cargando eventos:', e);
     }
 }
