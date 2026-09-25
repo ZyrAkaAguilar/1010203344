@@ -1,0 +1,20 @@
+{
+  "notifications": [
+    {
+      "id": "n1",
+      "title": "¡ZyrIsland Client Actualizado!",
+      "message": "Se han actualizado las texturas e instancias en el motor ZyrIsland.",
+      "author": "ZyrIsland Devs",
+      "date": "Hace 10 min",
+      "type": "update"
+    },
+    {
+      "id": "n2",
+      "title": "Sincronización Anti-Cheat",
+      "message": "Protección activa para todas las cuentas autorizadas.",
+      "author": "Sistema",
+      "date": "Hace 2 horas",
+      "type": "urgent"
+    }
+  ]
+}
