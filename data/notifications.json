@@ -1,0 +1,28 @@
+{
+  "notifications": [
+    {
+      "id": "n1",
+      "title": "¡ResourcePack Actualizado!",
+      "message": "Se han corregido errores de texturas en la instancia de Craftia Championship. Por favor descarga la v1.4.",
+      "author": "Eufonia DevTeam",
+      "date": "Hace 10 min",
+      "type": "update"
+    },
+    {
+      "id": "n2",
+      "title": "Revisión Anti-Cheat Requerida",
+      "message": "Recuerda tener actualizado el launcher oficial antes de ingresar al servidor del torneo.",
+      "author": "Staff",
+      "date": "Hace 2 horas",
+      "type": "urgent"
+    },
+    {
+      "id": "n3",
+      "title": "Mantenimiento del Hub",
+      "message": "Sincronización de credenciales y JSONs completada con éxito.",
+      "author": "Sistema",
+      "date": "Ayer",
+      "type": ""
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craftia Championship - Asset Downloader</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="mcc-bg-overlay"></div>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="mcc-btn mcc-btn-blue"><i class="fa-solid fa-arrow-left"></i> Volver al Hub</a>
+            <div class="brand">
+                <span class="brand-badge">INSTANCIA DE EVENTO</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="event-detail-container">
+        <div class="event-banner-large" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80');">
+            <div class="banner-content">
+                <span class="mcc-badge badge-gold">DISPONIBLE</span>
+                <h1>CRAFTIA CHAMPIONSHIP - SEASON 1</h1>
+                <p><i class="fa-solid fa-calendar"></i> Fecha: 15 de Octubre, 2026</p>
+            </div>
+        </div>
+
+        <div class="event-details-grid">
+            <div class="detail-card">
+                <h2><i class="fa-solid fa-circle-info"></i> Descripción del Evento</h2>
+                <p>Torneo competitivo de minijuegos con mapa personalizado, texturas oficiales y mecánicas únicas desarrolladas para Eufonia Client.</p>
+                
+                <h3 style="margin-top: 20px;"><i class="fa-solid fa-download"></i> Assets & Configuración para Eufonia Client</h3>
+                <div class="asset-list">
+                    <div class="asset-item">
+                        <div>
+                            <strong>ResourcePack Oficial v1.4</strong>
+                            <p>Texturas de minijuegos, UI y sonidos de ambiente.</p>
+                        </div>
+                        <button class="mcc-btn mcc-btn-gold" onclick="alert('Descargando ResourcePack...')"><i class="fa-solid fa-download"></i> .ZIP (45 MB)</button>
+                    </div>
+                    <div class="asset-item">
+                        <div>
+                            <strong>Modpack Sincronizado (.eufonia)</strong>
+                            <p>Mods de optimización y cosméticos permitidos.</p>
+                        </div>
+                        <button class="mcc-btn mcc-btn-blue" onclick="alert('Descargando Modpack...')"><i class="fa-solid fa-download"></i> .ZIP (120 MB)</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="detail-card">
+                <h2><i class="fa-solid fa-shield-halved"></i> Estado de Autorización</h2>
+                <div id="auth-status-box" class="auth-status-box">
+                    <i class="fa-solid fa-user-check status-icon success"></i>
+                    <p>Cuenta Autorizada para este Evento</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+</body>
+</html>
