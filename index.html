@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZyrIsland Client - Eufonia Studio Event Hub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="eufonia-bg-glow"></div>
+    <div class="eufonia-grid-overlay"></div>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <span class="brand-studio"><i class="fa-solid fa-cube"></i> EUFONIA STUDIO</span>
+                <span class="brand-divider">/</span>
+                <span class="brand-title">ZYRISLAND CLIENT</span>
+            </div>
+            
+            <div class="nav-actions">
+                <button id="refresh-btn" class="zyr-btn zyr-btn-cyan" title="Sincronizar Datos JSON">
+                    <i class="fa-solid fa-rotate"></i> <span class="btn-text">Actualizar</span>
+                </button>
+                <div id="user-profile-bar" class="user-profile hidden">
+                    <img id="user-avatar" src="https://mc-heads.net/avatar/steve/40" alt="Skin" class="user-avatar">
+                    <div class="user-info">
+                        <span id="user-name" class="user-name">Usuario</span>
+                        <span id="user-role" class="user-role">Jugador</span>
+                    </div>
+                    <button id="logout-btn" class="zyr-btn zyr-btn-danger zyr-btn-sm" title="Cerrar Sesión">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </button>
+                </div>
+                <button id="login-open-btn" class="zyr-btn zyr-btn-gold">
+                    <i class="fa-solid fa-user"></i> Iniciar Sesión
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="main-layout">
+        <!-- Events Section -->
+        <section class="events-section">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-layer-group"></i> MIS EVENTOS AUTORIZADOS</h2>
+                <div class="sync-indicator" id="sync-status">
+                    <span class="dot"></span> Sync ZyrIsland active (30s)
+                </div>
+            </div>
+
+            <!-- Lock / Access Message Container -->
+            <div id="event-access-alert" class="zyr-alert hidden">
+                <div class="alert-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="alert-body">
+                    <h3 id="alert-title">Acceso Restringido</h3>
+                    <p id="alert-message">Inicia sesión con tu cuenta de ZyrIsland Client para sincronizar tus instancias y eventos autorizados.</p>
+                    <a href="https://discord.gg/eufonia" target="_blank" class="zyr-btn zyr-btn-discord zyr-btn-sm">
+                        <i class="fa-brands fa-discord"></i> Soporte en Discord
+                    </a>
+                </div>
+            </div>
+
+            <!-- Events Grid -->
+            <div id="events-grid" class="events-grid">
+                <!-- Dynamically populated via events.json -->
+            </div>
+        </section>
+
+        <!-- Notifications Sidebar -->
+        <aside class="notifications-sidebar">
+            <div class="sidebar-card">
+                <div class="sidebar-header">
+                    <h3><i class="fa-solid fa-bell"></i> NOTIFICACIONES</h3>
+                    <span class="zyr-badge" id="notif-count">0</span>
+                </div>
+                <div id="notif-feed" class="notif-feed">
+                    <!-- Dynamically populated via notifications.json -->
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Modal Login -->
+    <div id="login-modal" class="modal-overlay hidden">
+        <div class="zyr-modal">
+            <button class="modal-close" id="modal-close-btn">&times;</button>
+            <div class="modal-header">
+                <i class="fa-solid fa-network-wired modal-icon"></i>
+                <h2>ZYRISLAND CLIENT LOGIN</h2>
+                <p>Eufonia Studio Security Protocol</p>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username"><i class="fa-solid fa-user"></i> Usuario Minecraft / ID</label>
+                    <input type="text" id="username" required placeholder="Ej: Steve_MC">
+                </div>
+                <div class="form-group">
+                    <label for="password"><i class="fa-solid fa-key"></i> Contraseña</label>
+                    <input type="password" id="password" required placeholder="••••••••">
+                </div>
+                <div id="login-error" class="login-error hidden"></div>
+                <button type="submit" class="zyr-btn zyr-btn-gold zyr-btn-block">ACCEDER A ZYRISLAND</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
