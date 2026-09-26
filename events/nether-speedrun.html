@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nether Speedrun - ZyrIsland Client</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="steam-theme">
+    <div class="app-window single-page-window fade-in-up">
+        <div class="window-title-bar">
+            <div class="window-controls">
+                <span class="control-dot close"></span>
+                <span class="control-dot minimize"></span>
+                <span class="control-dot maximize"></span>
+            </div>
+            <div class="app-title-text"><i class="fa-solid fa-island-tropical"></i> ZyrIsland Client - Asset Downloader</div>
+        </div>
+
+        <header class="top-bar">
+            <a href="../index.html" class="steam-btn btn-glass hover-bounce"><i class="fa-solid fa-arrow-left"></i> Volver al Dashboard</a>
+            <div class="brand-title-small"><i class="fa-solid fa-island-tropical"></i> ZYRISLAND CLIENT</div>
+        </header>
+
+        <main class="download-page-canvas">
+            <div class="steam-download-card scale-in" id="event-card-box">
+                <div class="card-bg-overlay"></div>
+                
+                <div class="card-content">
+                    <div class="card-top-tags">
+                        <span class="status-pill green">DISPONIBLE</span>
+                        <span class="code-id">ID: nether-speedrun</span>
+                    </div>
+
+                    <h1 class="event-main-title">Nether Speedrun Masters</h1>
+                    <p class="event-meta-info"><i class="fa-solid fa-calendar"></i> Fecha: 28 de Noviembre, 2026 | <i class="fa-solid fa-shield"></i> Verificación Anti-Cheat OK</p>
+
+                    <p class="event-description-text">
+                        Módulos de temporizador sincronizado, generación de seeds idénticas y modpack oficial para el torneo de speedrun del Nether.
+                    </p>
+
+                    <div class="download-interactive-zone">
+                        <div id="initial-download-view">
+                            <button id="start-download-btn" class="steam-btn btn-orange btn-lg hover-lift">
+                                <i class="fa-solid fa-cloud-arrow-down"></i> DESCARGAR PAQUETE DE ASSETS (.ZIP)
+                            </button>
+                            <span class="file-size-info"><i class="fa-solid fa-hard-drive"></i> Tamaño aprox: 84.2 MB</span>
+                        </div>
+
+                        <!-- Progress Bar Container -->
+                        <div id="download-progress-view" class="progress-box hidden">
+                            <div class="progress-info-header">
+                                <span id="status-step-text" class="status-step"><i class="fa-solid fa-gear fa-spin"></i> Conectando con ZyrIsland...</span>
+                                <span id="speed-indicator" class="speed-badge">0.0 MB/s</span>
+                            </div>
+
+                            <div class="bar-container">
+                                <div class="bar-label-line">
+                                    <span>Cargando paquete... / ZyrIsland software...</span>
+                                    <span id="bar1-percent">0%</span>
+                                </div>
+                                <div class="progress-bar-outer">
+                                    <div id="bar1-inner" class="progress-bar-inner bar-orange" style="width: 0%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="bar-container" style="margin-top: 16px;">
+                                <div class="bar-label-line">
+                                    <span>Tiempo Restante</span>
+                                    <span id="timer-remaining">Calculando...</span>
+                                </div>
+                                <div class="progress-bar-outer">
+                                    <div id="bar2-inner" class="progress-bar-inner bar-gradient" style="width: 0%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Success View -->
+                        <div id="download-success-view" class="success-box hidden fade-in">
+                            <div class="success-icon bounce-icon"><i class="fa-solid fa-circle-check"></i></div>
+                            <h3>¡Descarga Completada con Éxito!</h3>
+                            <p>Los assets de <strong>ZyrIsland Client</strong> se han desempaquetado correctamente.</p>
+                            <button class="steam-btn btn-glass" onclick="location.reload()"><i class="fa-solid fa-rotate-right"></i> Volver a Descargar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/security.js"></script>
+    <script src="../js/downloader.js"></script>
+</body>
+</html>
