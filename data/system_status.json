@@ -1,7 +1,11 @@
 {
-  "status": "offline",
+  "status": "maintenance",
   "title": "Aplicacion Apagada",
   "message": "Contacta al soporte discord o espera a que se autorize la entrada!",
   "maintenanceEndTime": null,
   "allowedRoles": ["all"]
 }
+# Modo Mantenimiento: maintenance
+# Modo Actualizacion: updating
+# Modo Apagado: offline
+# Modo Normal: online
