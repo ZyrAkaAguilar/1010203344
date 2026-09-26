@@ -2,10 +2,10 @@
   "users": [
     {
       "id": "u1",
-      "username": "Steve_Pro",
-      "password": "123",
+      "username": "ZyrAkaAguilar",
+      "password": "Cyn201030",
       "status": "active",
-      "role": "Jugador Oficial ZyrIsland",
+      "role": "Creadora",
       "allowedEvents": ["craftia-championship", "nether-speedrun"]
     },
     {
