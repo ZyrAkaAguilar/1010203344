@@ -1,12 +1,6 @@
 // ZyrIsland Asset Downloader Engine
 document.addEventListener('DOMContentLoaded', async () => {
     const currentUser = await SecurityManager.auditCurrentSession();
-    
-    if (!currentUser) {
-        alert('[SEGURIDAD ZYRISLAND] Sesión requerida para descargar assets.');
-        window.location.href = '../index.html';
-        return;
-    }
 
     loadEventBackgroundFromJSON();
     setupDownloadEngine();
