@@ -50,10 +50,7 @@ const SecurityManager = {
             const freshUser = data.users.find(u => u.id === user.id);
 
             if (!freshUser || freshUser.status !== 'active') {
-                console.warn('[SECURITY] Sesión revocada. Cuenta suspendida/baneada detectada.');
                 this.clearSession();
-                alert(`[SEGURIDAD ZYRISLAND] Tu cuenta (${user.username}) ha sido BANEADA o SUSPENDIDA. Acceso revocado.`);
-                window.location.reload();
                 return null;
             }
 
