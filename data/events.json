@@ -8,7 +8,7 @@
       "description": "Torneo principal de minijuegos competitivos de ZyrIsland Client. Descarga los paquetes necesarios.",
       "coverImage": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80",
       "banner": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
-      "detailPage": "events/craftia-championship.html"
+      "detailPage": "craftia-championship.html"
     },
     {
       "id": "nether-speedrun",
