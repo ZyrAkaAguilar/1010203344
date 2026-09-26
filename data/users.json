@@ -34,7 +34,7 @@
       "status": "active",
       "suspendReason": "No razon",
       "role": "VIP User",
-      "allowedEvents": []
+      "allowedEvents": ["empty_"]
     }
   ]
 }
