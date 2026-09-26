@@ -7,7 +7,7 @@
       "status": "active",
       "suspendReason": "No razon",
       "role": "Creadora",
-      "allowedEvents": ["craftia-championship", "nether-speedrun"]
+      "allowedEvents": ["empty_", "empty_2"]
     },
     {
       "id": "u2",
