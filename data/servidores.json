@@ -1,0 +1,29 @@
+[
+  {
+    "id": "srv_lobby",
+    "nombre": "Lobby ZyrIsland",
+    "descripcion": "El hub central para acceder a todas las experiencias de ZyrIsland Client.",
+    "ip": "lobby.zyrisland.net",
+    "online": true,
+    "jugadores": 150,
+    "imagen": "https://placehold.co/1600x900/1e1b2e/a78bfa?text=Lobby+ZyrIsland"
+  },
+  {
+    "id": "srv_battlebox",
+    "nombre": "Battle Box",
+    "descripcion": "Enfrentamientos PvP veloces y estratégicos.",
+    "ip": "bb.zyrisland.net",
+    "online": true,
+    "jugadores": 42,
+    "imagen": "https://placehold.co/1600x900/2e1b29/f43f5e?text=Battle+Box"
+  },
+  {
+    "id": "srv_parkour",
+    "nombre": "Parkour Warrior",
+    "descripcion": "Desafíos de salto extremo y carreras contra el tiempo.",
+    "ip": "pw.zyrisland.net",
+    "online": false,
+    "jugadores": 0,
+    "imagen": "https://placehold.co/1600x900/1b2e2b/10b981?text=Parkour+Warrior"
+  }
+]

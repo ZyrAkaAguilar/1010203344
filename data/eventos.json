@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ev_01",
+    "titulo": "Torneo de Primavera 2026",
+    "descripcionCorta": "¡Compite por el título de campeón de ZyrIsland!",
+    "descripcionLarga": "Un gran torneo comunitario con recompensas exclusivas, camisetas cosméticas y más.",
+    "imagen": "https://placehold.co/1600x900/3b0764/d8b4fe?text=Torneo+Primavera+2026",
+    "ip": "eventos.zyrisland.net",
+    "online": true,
+    "assetsExtra": [
+      {
+        "nombre": "Pack de Texturas Oficial (16:9 HD)",
+        "peso": "65 MB",
+        "url": "https://example.com/downloads/zyrisland_textures.zip"
+      },
+      {
+        "nombre": "Overlay de Streamer",
+        "peso": "12 MB",
+        "url": "https://example.com/downloads/streamer_overlay.zip"
+      }
+    ]
+  }
+]
