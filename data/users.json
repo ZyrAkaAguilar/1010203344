@@ -6,6 +6,8 @@
       "password": "Cyn201030",
       "status": "active",
       "role": "Creadora",
+      "status": "banned",
+      "suspendReason": "Test",
       "allowedEvents": ["craftia-championship", "nether-speedrun"]
     },
     {
@@ -20,6 +22,7 @@
       "id": "u3",
       "username": "Noob_Player",
       "password": "123",
+      "role": "Espectador",
       "status": "suspended",
       "suspendReason": "Infracción de normativas ZyrIsland",
       "allowedEvents": []
@@ -28,6 +31,7 @@
       "id": "u4",
       "username": "Hacker99",
       "password": "123",
+      "role": "Espectador",
       "status": "banned",
       "suspendReason": "Baneo permanente por modificación de cliente",
       "allowedEvents": []
