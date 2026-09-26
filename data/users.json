@@ -26,6 +26,15 @@
       "suspendReason": "No razon",
       "role": "VIP User",
       "allowedEvents": []
+    },
+    {
+      "id": "u2",
+      "username": "Sharingel",
+      "password": "8924665felix",
+      "status": "active",
+      "suspendReason": "No razon",
+      "role": "VIP User",
+      "allowedEvents": []
     }
   ]
 }
