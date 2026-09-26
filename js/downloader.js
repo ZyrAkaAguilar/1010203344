@@ -48,11 +48,11 @@ function startRealisticDownloadProcess() {
     const bar1Percent = document.getElementById('bar1-percent');
 
     const downloadSteps = [
-        { text: "Cargando paquete... / ZyrIsland software...", threshold: 0.15 },
-        { text: "Verificando firmas HMAC en servidores...", threshold: 0.35 },
-        { text: "Cargando modpacks y texturas...", threshold: 0.60 },
-        { text: "Verificando integridad del paquete .zip...", threshold: 0.85 },
-        { text: "Desempaquetando archivos finales...", threshold: 1.0 }
+        { text: "Cargando ZyrIsland Services...", threshold: 0.15 },
+        { text: "Solicitando archivos...", threshold: 0.35 },
+        { text: "Cargando assets...", threshold: 0.60 },
+        { text: "Verificando el paquete .zip...", threshold: 0.85 },
+        { text: "Desempaquetando archivos...", threshold: 1.0 }
     ];
 
     let startTime = Date.now();
@@ -107,7 +107,7 @@ function triggerAutomaticZipDownload() {
     const blob = new Blob([dummyContent], { type: 'application/zip' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = "ZyrIsland_Assets_Package.zip";
+    link.download = "ZyrIsland_.zip";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
