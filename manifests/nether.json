@@ -1,9 +1,0 @@
-{
-  "instanceId": "nether-speedrun",
-  "version": "1.0.1",
-  "hash": "b7e8d1c2a3f4567890fedcba",
-  "requiredFiles": [
-    "mods/timer-hud.jar",
-    "config/speedrun.json"
-  ]
-}
