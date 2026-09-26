@@ -1,0 +1,32 @@
+{
+  "events": [
+    {
+      "id": "craftia-championship",
+      "title": "Craftia Championship S1",
+      "date": "15 de Octubre, 2026 - 18:00 UTC",
+      "availability": "Disponible",
+      "mcVersion": "1.20.1",
+      "fabricVersion": "0.15.11",
+      "downloadUrl": "https://appservice.zyrakaworld.net/assets/craftia-modpack.zip",
+      "instanceFolder": "craftia-s1",
+      "description": "Instancia oficial de Craftia Championship. Incluye modpack optimizado y paquete de texturas.",
+      "coverImage": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80",
+      "banner": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
+      "detailPage": "events/craftia-championship.html"
+    },
+    {
+      "id": "nether-speedrun",
+      "title": "Nether Speedrun Masters",
+      "date": "28 de Noviembre, 2026 - 20:00 UTC",
+      "availability": "Disponible",
+      "mcVersion": "1.20.1",
+      "fabricVersion": "0.15.11",
+      "downloadUrl": "https://appservice.zyrakaworld.net/assets/nether-speedrun.zip",
+      "instanceFolder": "nether-speedrun",
+      "description": "Desafío de velocidad en el Nether. Incluye HUD timer mod y seeds idénticas.",
+      "coverImage": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80",
+      "banner": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+      "detailPage": "events/nether-speedrun.html"
+    }
+  ]
+}
