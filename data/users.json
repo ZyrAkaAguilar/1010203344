@@ -4,7 +4,8 @@
       "id": "u1",
       "username": "ZyrAkaAguilar",
       "password": "Cyn201030",
-      "status": "active",
+      "status": "suspended",
+      "suspendReason": "Infracción de normativas ZyrIsland",
       "role": "Creadora",
       "allowedEvents": ["craftia-championship", "nether-speedrun"]
     },
