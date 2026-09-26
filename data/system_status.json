@@ -5,7 +5,7 @@
   "maintenanceEndTime": null,
   "allowedRoles": ["all"]
 }
-# Modo Mantenimiento: maintenance
-# Modo Actualizacion: updating
-# Modo Apagado: offline
-# Modo Normal: online
+// Modo Mantenimiento: maintenance
+// Modo Actualizacion: updating
+// Modo Apagado: offline
+// Modo Normal: online 
