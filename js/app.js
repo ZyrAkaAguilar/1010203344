@@ -1,9 +1,8 @@
-// ZyrIsland Client Controller
+// ZyrIsland Client Controller with Fixed Notifications & Shell Interceptor
 let currentUser = null;
 let readNotificationIds = new Set();
 
 document.addEventListener('DOMContentLoaded', async () => {
-    // Restore read notification state from localStorage
     const savedReadIds = localStorage.getItem('zyrisland_read_notifs');
     if (savedReadIds) {
         readNotificationIds = new Set(JSON.parse(savedReadIds));
@@ -14,6 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initApp();
     setupEventListeners();
     setupNavigationTabs();
+    interceptExternalLinks();
 });
 
 function initApp() {
@@ -27,6 +27,18 @@ function initApp() {
         }
         loadAllData();
     }, 30000);
+}
+
+function interceptExternalLinks() {
+    // Redirigir todos los enlaces externos (como el canal de CynAka AGL) al navegador predeterminado de Windows
+    document.addEventListener('click', (e) => {
+        const targetAnchor = e.target.closest('a[target="_blank"]');
+        if (targetAnchor && typeof require !== 'undefined') {
+            e.preventDefault();
+            const { shell } = require('electron');
+            shell.openExternal(targetAnchor.href);
+        }
+    });
 }
 
 function setupNavigationTabs() {
@@ -56,22 +68,26 @@ function setupEventListeners() {
     const markAllBtn = document.getElementById('mark-all-read-btn');
 
     if (notifBtn && drawer) {
-        notifBtn.addEventListener('click', () => {
+        notifBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             drawer.classList.toggle('hidden');
         });
     }
 
     if (closeDrawerBtn && drawer) {
-        closeDrawerBtn.addEventListener('click', () => {
-            drawer.classList.add('hidden');
-        });
+        closeDrawerBtn.addEventListener('click', () => drawer.classList.add('hidden'));
     }
 
     if (markAllBtn) {
-        markAllBtn.addEventListener('click', () => {
-            markAllNotificationsAsRead();
-        });
+        markAllBtn.addEventListener('click', () => markAllNotificationsAsRead());
     }
+
+    // Cerrar el drawer si se hace clic fuera de él
+    document.addEventListener('click', (e) => {
+        if (drawer && !drawer.classList.contains('hidden') && !drawer.contains(e.target) && !notifBtn.contains(e.target)) {
+            drawer.classList.add('hidden');
+        }
+    });
 
     document.getElementById('login-open-btn').addEventListener('click', () => {
         document.getElementById('login-modal').classList.remove('hidden');
@@ -109,7 +125,8 @@ async function handleLogin() {
     errorBox.classList.add('hidden');
 
     try {
-        const response = await fetch('data/users.json?t=' + Date.now());
+        const baseUrl = typeof ZYRISLAND_CONFIG !== 'undefined' ? ZYRISLAND_CONFIG.REMOTE_DATA_URL : './data';
+        const response = await fetch(`${baseUrl}/users.json?t=${Date.now()}`);
         const data = await response.json();
         const foundUser = data.users.find(u => u.username.toLowerCase() === userInput.toLowerCase() && u.password === passInput);
 
@@ -172,10 +189,10 @@ async function loadAllData() {
     ]);
 }
 
-// Unread Notifications Management
 async function loadNotifications() {
     try {
-        const res = await fetch('data/notifications.json?t=' + Date.now());
+        const baseUrl = typeof ZYRISLAND_CONFIG !== 'undefined' ? ZYRISLAND_CONFIG.REMOTE_DATA_URL : './data';
+        const res = await fetch(`${baseUrl}/notifications.json?t=${Date.now()}`);
         const data = await res.json();
         const container = document.getElementById('notif-feed');
         const badge = document.getElementById('notif-count');
@@ -198,7 +215,6 @@ async function loadNotifications() {
                 <div class="notif-msg">${notif.message}</div>
             `;
 
-            // Click item to mark as read
             item.addEventListener('click', () => {
                 if (!readNotificationIds.has(notif.id)) {
                     readNotificationIds.add(notif.id);
@@ -210,7 +226,6 @@ async function loadNotifications() {
             container.appendChild(item);
         });
 
-        // Update Badge Count
         if (unreadCount > 0) {
             badge.textContent = unreadCount;
             badge.classList.remove('hidden');
@@ -224,7 +239,8 @@ async function loadNotifications() {
 }
 
 function markAllNotificationsAsRead() {
-    fetch('data/notifications.json?t=' + Date.now())
+    const baseUrl = typeof ZYRISLAND_CONFIG !== 'undefined' ? ZYRISLAND_CONFIG.REMOTE_DATA_URL : './data';
+    fetch(`${baseUrl}/notifications.json?t=${Date.now()}`)
         .then(res => res.json())
         .then(data => {
             data.notifications.forEach(n => readNotificationIds.add(n.id));
@@ -250,7 +266,8 @@ async function loadEventsAndLibrary() {
     }
 
     try {
-        const res = await fetch('data/events.json?t=' + Date.now());
+        const baseUrl = typeof ZYRISLAND_CONFIG !== 'undefined' ? ZYRISLAND_CONFIG.REMOTE_DATA_URL : './data';
+        const res = await fetch(`${baseUrl}/events.json?t=${Date.now()}`);
         const data = await res.json();
 
         const userEvents = data.events.filter(ev => currentUser.allowedEvents.includes(ev.id));
@@ -306,7 +323,8 @@ async function loadCommunityGrid() {
     if (!grid) return;
 
     try {
-        const res = await fetch('data/users.json?t=' + Date.now());
+        const baseUrl = typeof ZYRISLAND_CONFIG !== 'undefined' ? ZYRISLAND_CONFIG.REMOTE_DATA_URL : './data';
+        const res = await fetch(`${baseUrl}/users.json?t=${Date.now()}`);
         const data = await res.json();
         grid.innerHTML = '';
 
