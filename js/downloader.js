@@ -1,7 +1,5 @@
 // ZyrIsland Asset Downloader Engine
 document.addEventListener('DOMContentLoaded', async () => {
-    const currentUser = await SecurityManager.auditCurrentSession();
-
     loadEventBackgroundFromJSON();
     setupDownloadEngine();
 });
