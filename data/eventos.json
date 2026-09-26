@@ -1,0 +1,49 @@
+[
+  {
+    "id": "ev_01",
+    "titulo": "Limpieza de Primavera - Encuesta de Mapas",
+    "descripcionCorta": "¡Es hora de una limpieza de primavera! Vota por tus mapas favoritos.",
+    "descripcionLarga": "Estamos haciendo un retoque en el pool de mapas y retirando algunos no tan queridos. ¡Queremos saber tu opinión para conservar los mejores!",
+    "imagen": "https://placehold.co/600x350/ff2a5f/ffffff?text=Map+Poll+Spring",
+    "ip": "event.mccisland.net:25565",
+    "online": true,
+    "assetsExtra": [
+      {
+        "nombre": "Resource Pack Oficial (HD)",
+        "peso": "45 MB",
+        "url": "https://example.com/downloads/mcc_resourcepack.zip"
+      },
+      {
+        "nombre": "Mods Permitidos Config",
+        "peso": "2 MB",
+        "url": "https://example.com/downloads/mods_config.zip"
+      }
+    ]
+  },
+  {
+    "id": "ev_02",
+    "titulo": "Evento de Pesca: Monster Sea",
+    "descripcionCorta": "Captura criaturas marinas únicas en el muelle de la isla.",
+    "descripcionLarga": "¡El mar ha traído monstruos y tesoros! Participa durante este fin de semana para ganar cosméticos exclusivos y monedas extra.",
+    "imagen": "https://placehold.co/600x350/00ff88/111111?text=Sea+Monsters+Event",
+    "ip": "",
+    "online": false,
+    "assetsExtra": [
+      {
+        "nombre": "Guía de Pesca PDF",
+        "peso": "5 MB",
+        "url": "https://example.com/downloads/guia_pesca.pdf"
+      }
+    ]
+  },
+  {
+    "id": "ev_03",
+    "titulo": "Hole in the Wall - Revamp",
+    "descripcionCorta": "Nuevos tipos de paredes, trampas y mecánicas actualizadas.",
+    "descripcionLarga": "¡Supera los muros que vienen hacia ti con la nueva actualización! Paredes de slime, trampas de ceguera y más velocidad.",
+    "imagen": "https://placehold.co/600x350/ffaa00/111111?text=Hole+in+the+Wall",
+    "ip": "hitw.mccisland.net",
+    "online": true,
+    "assetsExtra": []
+  }
+]

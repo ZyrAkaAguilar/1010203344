@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCC Island - Web Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <div class="logo-header">
+                <img src="https://mccisland.net/styles/mcci/mcc_island_logo.png" alt="MCC Island" class="login-logo" onerror="this.src='https://placehold.co/250x80/e63946/ffffff?text=MCC+ISLAND'">
+            </div>
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" required placeholder="Tu usuario">
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary">Entrar</button>
+            </form>
+            <div id="login-error" class="error-msg"></div>
+        </div>
+    </div>
+
+    <div id="main-app" class="hidden">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-left">
+                    <img src="https://mccisland.net/styles/mcci/mcc_island_logo.png" alt="MCC Island" class="nav-logo" onerror="this.src='https://placehold.co/120x40/e63946/ffffff?text=MCCI'">
+                    <a href="#" class="nav-link active" onclick="showSection('home')">INICIO</a>
+                    <a href="#" class="nav-link" onclick="showSection('servers')">SERVIDORES</a>
+                    <a href="#" class="nav-link" onclick="showSection('events')">EVENTOS</a>
+                    <a href="#" class="nav-link" onclick="showSection('notifications')">NOTIFICACIONES</a>
+                </div>
+                <div class="nav-right">
+                    <div class="user-profile">
+                        <span id="user-display-name">Usuario</span>
+                        <span id="user-role-badge" class="badge">JUGADOR</span>
+                    </div>
+                    <button class="btn btn-secondary btn-sm" onclick="logout()">Cerrar Sesión</button>
+                </div>
+            </div>
+        </nav>
+
+        <header class="hero-banner">
+            <div class="hero-content">
+                <h1>MCC ISLAND PORTAL</h1>
+                <p>Servidor multijugador gratuito para Minecraft Java Edition</p>
+                <div class="server-status-bar">
+                    <div class="status-card">
+                        <span class="status-indicator online"></span>
+                        <span id="global-status">ONLINE - 344 Jugadores</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="container">
+            <section id="section-home" class="page-section">
+                <h2 class="section-title">ÚLTIMAS NOTICIAS</h2>
+                <div id="news-grid" class="cards-grid"></div>
+            </section>
+
+            <section id="section-servers" class="page-section hidden">
+                <h2 class="section-title">SERVIDORES AUTORIZADOS</h2>
+                <p class="section-desc">Acceso según tus permisos de cuenta:</p>
+                <div id="servers-grid" class="cards-grid"></div>
+            </section>
+
+            <section id="section-events" class="page-section hidden">
+                <h2 class="section-title">EVENTOS DISPONIBLES</h2>
+                <div id="events-grid" class="cards-grid"></div>
+            </section>
+
+            <section id="section-notifications" class="page-section hidden">
+                <h2 class="section-title">CENTRO DE NOTIFICACIONES</h2>
+                <div id="notifications-list" class="notifications-container"></div>
+            </section>
+
+            <section id="section-event-detail" class="page-section hidden">
+                <button class="btn btn-secondary" onclick="showSection('events')">← Volver a Eventos</button>
+                <div id="event-detail-content" class="detail-container"></div>
+            </section>
+        </main>
+
+        <div id="download-modal" class="modal hidden">
+            <div class="modal-content download-box">
+                <h3>Descargando Recursos Extra...</h3>
+                <p id="download-filename">archivo.zip</p>
+                <div class="progress-bar-container">
+                    <div id="download-progress" class="progress-bar-fill"></div>
+                </div>
+                <div id="download-percentage">0%</div>
+                <p class="download-tip">Por favor no cierres la página durante la descarga...</p>
+            </div>
+        </div>
+
+        <footer class="site-footer">
+            <div class="footer-links">
+                <a href="#">REGLAS</a>
+                <a href="#">TÉRMINOS</a>
+                <a href="#">PRIVACIDAD</a>
+                <a href="#">AYUDA</a>
+                <a href="#">SOPORTE</a>
+            </div>
+            <p>&copy; 2026 MCC Island Web Portal. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "usr_01",
+    "username": "jugador1",
+    "password": "123",
+    "nombre": "Alex_Craft",
+    "estado": "activo",
+    "rol": "Jugador",
+    "servidoresPermitidos": ["srv_lobby", "srv_battlebox"]
+  },
+  {
+    "id": "usr_02",
+    "username": "jugador2",
+    "password": "123",
+    "nombre": "Steve_Pro",
+    "estado": "suspendido",
+    "rol": "Jugador",
+    "servidoresPermitidos": ["srv_lobby"]
+  },
+  {
+    "id": "usr_03",
+    "username": "baneado1",
+    "password": "123",
+    "nombre": "Hacker99",
+    "estado": "baneado",
+    "rol": "Jugador",
+    "servidoresPermitidos": []
+  },
+  {
+    "id": "usr_04",
+    "username": "admin",
+    "password": "adminpassword",
+    "nombre": "Admin_MCC",
+    "estado": "activo",
+    "rol": "Administrador",
+    "servidoresPermitidos": ["srv_lobby", "srv_battlebox", "srv_parkour", "srv_tgttos"]
+  }
+]

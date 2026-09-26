@@ -1,0 +1,38 @@
+[
+  {
+    "id": "srv_lobby",
+    "nombre": "Lobby Principal",
+    "descripcion": "El punto de encuentro central para todos los jugadores de MCC Island.",
+    "ip": "play.mccisland.net",
+    "online": true,
+    "jugadores": 210,
+    "imagen": "https://placehold.co/600x400/0b0f19/ff2a5f?text=Lobby+Principal"
+  },
+  {
+    "id": "srv_battlebox",
+    "nombre": "Battle Box Arena",
+    "descripcion": "Combate PVP rápido 4v4 donde debes llenar la lana central.",
+    "ip": "bb.mccisland.net",
+    "online": true,
+    "jugadores": 84,
+    "imagen": "https://placehold.co/600x400/182238/ffaa00?text=Battle+Box"
+  },
+  {
+    "id": "srv_parkour",
+    "nombre": "Parkour Warrior",
+    "descripcion": "Supera complejos circuitos de salto contra el tiempo.",
+    "ip": "pw.mccisland.net",
+    "online": false,
+    "jugadores": 0,
+    "imagen": "https://placehold.co/600x400/111625/00ff88?text=Parkour+Warrior"
+  },
+  {
+    "id": "srv_tgttos",
+    "nombre": "TGTTOS Arena",
+    "descripcion": "To Get To The Other Side. Llega al otro lado lo más rápido posible.",
+    "ip": "tgttos.mccisland.net",
+    "online": true,
+    "jugadores": 50,
+    "imagen": "https://placehold.co/600x400/161c2e/ff2a5f?text=TGTTOS"
+  }
+]
