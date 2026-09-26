@@ -1,0 +1,28 @@
+{
+  "notifications": [
+    {
+      "id": "n1",
+      "title": "¡Nuevas Funciones de Notificación!",
+      "message": "Ahora puedes hacer clic en cualquier notificación para marcarla como leída o usar el botón 'Marcar leídas'.",
+      "author": "ZyrIsland System",
+      "date": "Ahora",
+      "type": "update"
+    },
+    {
+      "id": "n2",
+      "title": "¡ZyrIsland Client Engine Actualizado!",
+      "message": "Se han actualizado los paquetes de texturas y el sistema de seguridad de tokens.",
+      "author": "ZyrIsland Devs",
+      "date": "Hace 5 min",
+      "type": "update"
+    },
+    {
+      "id": "n3",
+      "title": "Verificación de Seguridad HMAC",
+      "message": "Cookies de sesión activas para evitar bypasses de cuentas baneadas.",
+      "author": "Sistema",
+      "date": "Hace 1 hora",
+      "type": "urgent"
+    }
+  ]
+}
