@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZyrIsland Client - Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="steam-theme">
+
+    <!-- FULLSCREEN SYSTEM STATUS OVERLAY (BLOQUEO DE PANTALLA SEGÚN SYSTEM_STATUS.JSON) -->
+    <div id="system-status-overlay" class="system-status-overlay hidden">
+        <div class="system-status-box">
+            <div id="status-icon-box"></div>
+            <h1 id="status-title" class="status-title-text">Cargando estado...</h1>
+            <p id="status-message" class="status-message-text">Verificando conexión con los servidores.</p>
+            <div id="status-time-badge" class="status-badge-time hidden"></div>
+        </div>
+    </div>
+
+    <div class="app-window">
+        <div class="window-title-bar">
+            <div class="window-title"><i class="fa-solid fa-island-tropical"></i> ZYRISLAND CLIENT - V2.4</div>
+        </div>
+
+        <div class="app-body-container">
+            <aside class="app-sidebar">
+                <div class="sidebar-header">
+                    <div class="sidebar-logo">
+                        <i class="fa-solid fa-gem logo-icon"></i>
+                        <span class="logo-text">ZYRISLAND</span>
+                    </div>
+                </div>
+
+                <nav class="sidebar-menu">
+                    <a href="#" class="menu-item active" data-tab="tab-inicio">
+                        <i class="fa-solid fa-house"></i> <span>Inicio</span>
+                    </a>
+                    <a href="#" class="menu-item" data-tab="tab-biblioteca">
+                        <i class="fa-solid fa-layer-group"></i> <span>Biblioteca</span>
+                    </a>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <div id="user-profile-bar" class="user-profile-bar hidden">
+                        <img id="user-avatar" src="" alt="Avatar" class="avatar-img">
+                        <div class="user-info">
+                            <span id="user-name" class="user-name"></span>
+                            <span id="user-role" class="user-role"></span>
+                        </div>
+                        <button id="logout-btn" class="logout-btn" title="Cerrar Sesión">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </button>
+                    </div>
+
+                    <button id="login-open-btn" class="steam-btn btn-orange btn-block">
+                        <i class="fa-solid fa-key"></i> Iniciar Sesión
+                    </button>
+                </div>
+            </aside>
+
+            <main class="app-main-content">
+                <header class="top-bar">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <button id="refresh-btn" class="steam-btn" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--steam-border);">
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </button>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <div class="notif-wrapper">
+                            <button id="notif-toggle-btn" class="notif-bell-btn">
+                                <i class="fa-solid fa-bell"></i>
+                                <span id="notif-count" class="notif-badge hidden">0</span>
+                            </button>
+
+                            <div id="notification-drawer" class="notification-drawer hidden">
+                                <div class="drawer-header">
+                                    <span class="drawer-title">Notificaciones</span>
+                                    <div style="display: flex; gap: 8px;">
+                                        <button id="mark-all-read-btn" style="background:none; border:none; color: var(--steam-orange); font-size:0.75rem; cursor:pointer; font-weight:700;">Marcar leídas</button>
+                                        <button id="close-drawer-btn" style="background:none; border:none; color: var(--text-muted); cursor:pointer;"><i class="fa-solid fa-xmark"></i></button>
+                                    </div>
+                                </div>
+                                <div id="notif-feed" class="notif-feed"></div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <div id="tab-inicio" class="tab-content">
+                    <div id="event-access-alert" class="hidden" style="background: rgba(242, 98, 34, 0.1); border: 1px solid var(--steam-orange); border-radius: 12px; padding: 16px; margin-bottom: 24px;">
+                        <h3 id="alert-title" style="color: var(--steam-orange); font-size: 1rem; font-weight: 800; margin-bottom: 4px;">Acceso Restringido</h3>
+                        <p id="alert-message" style="font-size: 0.85rem; color: #ccc;"></p>
+                    </div>
+
+                    <h2 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 16px; color: #fff;">Torneos y Eventos</h2>
+                    <div id="events-grid-inicio" class="steam-events-grid"></div>
+                </div>
+
+                <div id="tab-biblioteca" class="tab-content hidden-tab">
+                    <h2 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 16px; color: #fff;">Mi Biblioteca de Instancias</h2>
+                    <div id="library-events-container"></div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- MODAL DE LOGIN -->
+    <div id="login-modal" class="modal-overlay hidden">
+        <div class="steam-modal">
+            <div class="modal-header">
+                <h2>Acceso ZyrIsland Client</h2>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Inicia sesión para validar tus tokens</p>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label>Usuario</label>
+                    <input type="text" id="username" required placeholder="Steve_Pro">
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" id="password" required placeholder="••••••••">
+                </div>
+                <div id="login-error" class="hidden" style="color: #ff4d4d; font-size: 0.8rem; margin-bottom: 12px; text-align: center;"></div>
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button type="button" id="modal-close-btn" class="steam-btn" style="flex: 1; background: rgba(255,255,255,0.05); color: #fff;">Cancelar</button>
+                    <button type="submit" class="steam-btn btn-orange" style="flex: 1;">Entrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/security.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/downloader.js"></script>
+</body>
+</html>
