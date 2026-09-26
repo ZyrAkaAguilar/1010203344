@@ -4,43 +4,27 @@
       "id": "u1",
       "username": "ZyrAkaAguilar",
       "password": "Cyn201030",
-      "status": "suspended",
-      "suspendReason": "Infracción de normativas ZyrIsland",
+      "status": "active",
+      "suspendReason": "No razon",
       "role": "Creadora",
       "allowedEvents": ["craftia-championship", "nether-speedrun"]
     },
     {
       "id": "u2",
-      "username": "Alex_Craft",
-      "password": "123",
+      "username": "Kyozu6",
+      "password": "vips201030",
       "status": "active",
-      "role": "Streamer VIP",
-      "allowedEvents": ["craftia-championship"]
+      "suspendReason": "No razon",
+      "role": "VIP User",
+      "allowedEvents": []
     },
     {
       "id": "u3",
-      "username": "Noob_Player",
-      "password": "123",
-      "role": "Espectador",
-      "status": "suspended",
-      "suspendReason": "Infracción de normativas ZyrIsland",
-      "allowedEvents": []
-    },
-    {
-      "id": "u4",
-      "username": "Hacker99",
-      "password": "123",
-      "role": "Espectador",
-      "status": "banned",
-      "suspendReason": "Baneo permanente por modificación de cliente",
-      "allowedEvents": []
-    },
-    {
-      "id": "u5",
-      "username": "Invitado_Sin_Eventos",
-      "password": "123",
+      "username": "Megan11242M",
+      "password": "vips201030",
       "status": "active",
-      "role": "Espectador",
+      "suspendReason": "No razon",
+      "role": "VIP User",
       "allowedEvents": []
     }
   ]
