@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZyrIsland Client</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="steam-theme">
+    <div class="app-window">
+        <div class="app-body-container">
+            <!-- Left Eufonia Sidebar Icon Stream -->
+            <aside class="app-sidebar">
+                <div class="sidebar-home-btn" id="home-tab-btn" title="Inicio"><i class="fa-solid fa-house"></i></div>
+                <div id="instance-sidebar-list" class="instance-icon-stream"></div>
+                <img id="user-sidebar-avatar" src="https://mc-heads.net/avatar/steve/48" class="user-avatar-bottom" title="Usuario">
+            </aside>
+
+            <!-- Main Interactive Canvas -->
+            <div class="app-main-content">
+                <header class="top-bar">
+                    <div class="brand-title-text"><i class="fa-solid fa-island-tropical"></i> ZYRISLAND CLIENT</div>
+                    <div class="top-bar-actions">
+                        <a href="https://www.youtube.com/@cynakaagl" target="_blank" class="steam-btn btn-glass" style="font-size: 0.8rem;">
+                            <i class="fa-brands fa-youtube" style="color: #ff4d4d;"></i> CANAL OFICIAL
+                        </a>
+                    </div>
+                </header>
+
+                <main id="instance-view-canvas" class="instance-hero-view">
+                    <div class="hero-overlay"></div>
+                    
+                    <div class="hero-main-logo">
+                        <h1 id="hero-title">DEDSAFIO 4</h1>
+                    </div>
+
+                    <!-- Eufonia Floating Action Card -->
+                    <div class="eufonia-action-card">
+                        <div id="action-card-thumb" class="action-card-thumb"></div>
+                        <div class="action-card-info">
+                            <div id="action-card-title" class="action-card-title">DEDSAFIO 4</div>
+                            <div id="action-card-status" class="action-card-status">Comprobando estado...</div>
+                            
+                            <div class="action-buttons-row">
+                                <button id="action-primary-btn" class="steam-btn btn-orange">
+                                    <i class="fa-solid fa-play"></i> JUGAR
+                                </button>
+                                <button id="uninstall-btn" class="steam-btn btn-danger hidden" title="Desinstalar Instancia">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+
+                            <div id="progress-box" class="progress-container-inline hidden">
+                                <div class="progress-bar-bg">
+                                    <div id="progress-fill" class="progress-bar-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
