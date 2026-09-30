@@ -19,10 +19,8 @@
         </div>
     </div>
 
-    <!-- Main Application Container styled as Desktop App Web Hybrid -->
     <div class="app-window fade-in-up">
         
-        <!-- Desktop App Window Bar -->
          <div class="window-title-bar">
             <div class="window-controls">
                 <span class="control-dot close"></span>
@@ -34,7 +32,6 @@
         </div>
 
         <div class="app-body-container">
-            <!-- Sidebar Menu -->
             <aside class="app-sidebar">
                 <div class="sidebar-brand">
                     <span class="brand-title">ZYRISLAND</span>
@@ -51,10 +48,8 @@
                 </div>
             </aside>
 
-            <!-- Main Content Canvas -->
             <div class="app-main-content">
                 
-                <!-- Top Header Bar -->
                 <header class="top-bar">
                     <div class="search-input-wrapper">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -66,7 +61,6 @@
                             <i class="fa-solid fa-rotate"></i>
                         </button>
                         
-                        <!-- Notification Bell with Unread Counter & Pulse Animation -->
                         <div class="notif-bell-icon" id="notif-toggle-btn" title="Notificaciones">
                             <i class="fa-solid fa-bell"></i>
                             <span class="notif-badge-count hidden" id="notif-count">0</span>
@@ -89,10 +83,8 @@
                     </div>
                 </header>
 
-                <!-- Scrollable Canvas -->
                 <div class="main-canvas">
                     
-                    <!-- Access Alert Banner -->
                     <div id="event-access-alert" class="steam-alert hidden fade-in">
                         <div class="alert-icon"><i class="fa-solid fa-shield-halved"></i></div>
                         <div class="alert-body">
@@ -101,10 +93,8 @@
                         </div>
                     </div>
 
-                    <!-- TAB 1: INICIO -->
                     <div id="inicio-tab" class="tab-content active-tab fade-in">
                         
-                        <!-- Hero Section: CynAka AGL YouTube Highlight -->
                         <section class="hero-featured-section">
                             <div class="hero-main-card cynaka-hero-bg hover-zoom-bg">
                                 <div class="hero-overlay-gradient"></div>
@@ -136,7 +126,6 @@
                             </div>
                         </section>
 
-                        <!-- Featured Events Grid -->
                         <section class="content-section">
                             <div class="section-title-row">
                                 <h2>Próximas Instancias & Eventos</h2>
@@ -148,7 +137,6 @@
                         </section>
                     </div>
 
-                    <!-- TAB 2: BIBLIOTECA -->
                     <div id="biblioteca-tab" class="tab-content hidden-tab fade-in">
                         <section class="content-section">
                             <div class="section-title-row">
@@ -160,7 +148,6 @@
                         </section>
                     </div>
 
-                    <!-- TAB 3: COMUNIDAD -->
                     <div id="comunidad-tab" class="tab-content hidden-tab fade-in">
                         <section class="content-section">
                             <div class="section-title-row">
@@ -176,7 +163,6 @@
             </div>
         </div>
 
-        <!-- Notification Drawer Panel with Mark-as-Read State -->
         <aside id="notification-drawer" class="notification-drawer hidden slide-in-right">
             <div class="drawer-header">
                 <h3><i class="fa-solid fa-bell"></i> Notificaciones</h3>
@@ -190,18 +176,17 @@
 
     </div>
 
-    <!-- Login Modal -->
     <div id="login-modal" class="modal-overlay hidden">
         <div class="steam-modal scale-in">
             <button class="modal-close" id="modal-close-btn">&times;</button>
             <div class="modal-header">
                 <div class="modal-logo"><i class="fa-solid fa-shield-halved"></i></div>
                 <h2>LOGIN DE SEGURIDAD ZYRISLAND</h2>
-                <p>Credenciales cifradas</p>
+                <p>Debe iniciar sesion para ingresar a los eventos!</p>
             </div>
             <form id="login-form">
                 <div class="form-group">
-                    <label for="username">Usuario Minecraft / ID</label>
+                    <label for="username">Usuario Minecraft</label>
                     <input type="text" id="username" required placeholder="Ej: Steve_Pro">
                 </div>
                 <div class="form-group">
@@ -209,7 +194,7 @@
                     <input type="password" id="password" required placeholder="••••••••">
                 </div>
                 <div id="login-error" class="login-error hidden"></div>
-                <button type="submit" class="steam-btn btn-orange btn-block">AUTENTICAR Y INICIAR SESION</button>
+                <button type="submit" class="steam-btn btn-orange btn-block">INICIAR SESION</button>
             </form>
         </div>
     </div>
