@@ -180,7 +180,7 @@ body.steam-theme {
 
 .hero-main-card.cynaka-hero-bg {
     height: 300px; border-radius: 20px; position: relative; overflow: hidden;
-    background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80');
+    background-image: url('https://yt3.googleusercontent.com/gjAY3N8H6NSs0PpTI6r5cc62uY2q0WR734FbEady9kWcnE0Lg2Yq9hSe8SrUFhfU0dt7cvZVPA=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj?auto=format&fit=crop&w=1200&q=80');
     background-size: cover; background-position: center; display: flex;
     flex-direction: column; justify-content: space-between; padding: 24px;
     border: 1px solid var(--steam-border); transition: transform 0.4s ease;
