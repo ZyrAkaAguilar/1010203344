@@ -232,7 +232,7 @@ function updateUIState() {
         profileBar.classList.add('hidden');
         alertBox.classList.remove('hidden');
         document.getElementById('alert-title').textContent = 'Acceso Restringido';
-        document.getElementById('alert-message').textContent = 'Inicia sesión con tu cuenta de ZyrIsland Client para autenticar tu cookie y ver tus instancias.';
+        document.getElementById('alert-message').textContent = 'Inicia sesión con tu cuenta de ZyrIsland Client para autenticar y ver tus instancias.';
     }
 }
 
